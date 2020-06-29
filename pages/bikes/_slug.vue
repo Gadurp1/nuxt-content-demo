@@ -10,20 +10,21 @@
           </h2>
         </span>
       </div>
-        <img
-          v-if="bike"
-          :src="bike.image"
-          class="w-full z-40 md:ml-24 bike-image"
-          style="z-index:1"
-          alt=""
-        />
-        <NavButton
-          :bike="prev"
-          :image="prev.image"
-          :theme="`${bike.theme}-600`"
-          direction="left"
-          class="absolute top-0 mt-10 ml-12"
-        />
+      <img
+        v-if="bike"
+        :src="bike.image"
+        class="w-full z-40 md:ml-24 bike-image"
+        style="z-index:1"
+        alt=""
+      />
+      <NavButton
+        :bike="prev"
+        v-if="prev"
+        :image="prev.image"
+        :theme="`${bike.theme}-600`"
+        direction="left"
+        class="absolute top-0 mt-10 ml-12"
+      />
     </div>
 
     <!-- Nuxt content Section -->
@@ -66,26 +67,7 @@ export default {
   },
   head({ $content, params }) {
     return {
-      title: `${this.bike.manufacturer} ${this.bike.model}`,
-      meta: [
-        {
-          hid: "description",
-          name: this.bike.model,
-          content: this.getNuxtContent(this.bike)
-        },
-        {
-          property: "og:title",
-          content: this.bike.model
-        },
-        {
-          property: "og:description",
-          content: this.getNuxtContent(this.bike)
-        },
-        {
-          property: "og:image",
-          content: this.bike.image
-        }
-      ]
+      title: `${this.bike.manufacturer} ${this.bike.model}`
     };
   },
   async asyncData({ $content, params }) {
@@ -180,7 +162,6 @@ export default {
   animation: fade-in 1s 0s linear;
 }
 .bike-image {
-  animation: slide-in .3s 0s linear;
+  animation: slide-in 0.3s 0s linear;
 }
-
 </style>

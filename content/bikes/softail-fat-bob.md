@@ -2,7 +2,6 @@
       manufacturer: "harley"
       model: "Softail Fat Bob"
       slug: "softail-fat-bob"
-      title: "softail-fat-bob"
       power: "100 hp"
       color: "Black"
       displacement: "1,870 cc"
