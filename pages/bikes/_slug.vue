@@ -128,15 +128,15 @@ export default {
 }
 @media (min-width: 640px) {
   .gradient-blue {
-    background-image: -webkit-linear-gradient(140deg, #618fe1 55%, #fff 35%);
+    background-image: -webkit-linear-gradient(180deg, #618fe1 55%, #fff 35%);
     min-height: 400px;
   }
   .gradient-red {
-    background-image: -webkit-linear-gradient(140deg, #e36461 55%, #fff 35%);
+    background-image: -webkit-linear-gradient(180deg, #e36461 55%, #fff 35%);
     min-height: 400px;
   }
   .gradient-gray {
-    background-image: -webkit-linear-gradient(140deg, #262627 55%, #fff 35%);
+    background-image: -webkit-linear-gradient(180deg, #262627 55%, #fff 35%);
     min-height: 400px;
   }
 }
