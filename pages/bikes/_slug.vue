@@ -9,11 +9,11 @@
           direction="left"
         />
       </nuxt-link>
-      <div class="p-12 z-50 text-left">
+      <div class="p-12 mt-10 z-50 text-left">
         <span class="text-2xl">
           <b class="text-gray-800">{{ bike.manufacturer }}</b> |
           <b :class="`text-${bike.theme}`"> {{ bike.power }}</b>
-          <h2 class="text-6xl font-bold">
+          <h2 class="text-5xl font-thin">
             {{ bike.model }}
           </h2>
         </span>
@@ -22,7 +22,7 @@
         <img
         v-if="bike"
           :src="bike.image"
-          class="w-full z-40 ml-24"
+          class="w-full z-40 md:ml-12 -mt-12"
           style="z-index:1"
           alt=""
         />
@@ -42,7 +42,7 @@
       />
       <nuxt-content
         :document="bike"
-        class="w-3/4 md:w-2/3 mx-auto md:-mt-12 text-md lg:text-2xl xl:text-3xl md:text-gray-400"
+        class="w-3/4 md:w-2/3 mx-auto text-lg xxl:text-xl  md:text-gray-300"
       />
       <div class="w-3/4 md:w-2/3 mx-auto  py-4 items-center flex flex-wrap">
         <span class="details-label">
@@ -101,16 +101,18 @@ export default {
   transform: translateX(10px);
   opacity: 0;
 }
-.gradient-blue {
-  background-image: -webkit-linear-gradient(210deg, #618fe1 55%, #fff 35%);
-  min-height: 400px;
-}
-.gradient-red {
-  background-image: -webkit-linear-gradient(210deg, #e36461 55%, #fff 35%);
-  min-height: 400px;
-}
-.gradient-gray {
-  background-image: -webkit-linear-gradient(210deg, #262627 55%, #fff 35%);
-  min-height: 400px;
+  @media (min-width:767px) {
+    .gradient-blue {
+    background-image: -webkit-linear-gradient(210deg, #618fe1 55%, #fff 35%);
+    min-height: 400px;
+  }
+  .gradient-red {
+    background-image: -webkit-linear-gradient(210deg, #e36461 55%, #fff 35%);
+    min-height: 400px;
+  }
+  .gradient-gray {
+    background-image: -webkit-linear-gradient(210deg, #262627 55%, #fff 35%);
+    min-height: 400px;
+  }
 }
 </style>
