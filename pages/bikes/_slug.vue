@@ -1,11 +1,10 @@
 <template>
   <div class="w-full flex flex-wrap">
     <div class="bg-white w-full md:w-1/2 md:h-screen static pt-12">
-        <div class="border border-white p-2 absolute top-0 left-0 mt-10 ml-10 text-white font-bold rounded" :class="`bg-${bike.theme}`">
-        <nuxt-link
-          v-if="next"
+        <div v-if="prev" class="border border-white p-2 absolute top-0 left-0 mt-10 ml-10 text-white font-bold rounded" :class="`bg-${bike.theme}`">
+          <nuxt-link
           tag="button"
-          :to="`/bikes/${next.slug}`"
+          :to="`/bikes/${prev.slug}`"
         >
          < Prev
         </nuxt-link>
@@ -26,7 +25,7 @@
       class="w-full md:w-1/2 md:h-screen flex flex-wrap content-center static"
       :class="`md:bg-${bike.theme}`"
     >
-      <div class="border border-white p-2 absolute top-0 right-0 mt-10 mr-10 bg-white">
+      <div v-if="next" class="border border-white p-2 absolute top-0 right-0 mt-10 mr-10 bg-white">
         <nuxt-link
           v-if="next"
           tag="button"
