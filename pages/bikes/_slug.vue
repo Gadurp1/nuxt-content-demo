@@ -1,27 +1,11 @@
 <template>
   <div class="w-full flex flex-wrap" :class="`gradient-${bike.theme}`">
     <div class="bg-none w-full md:w-1/2 md:h-screen static pt-12">
-<<<<<<< HEAD
       <div class="p-12 z-50 text-left md:-mb-40 md:mt-48 md:ml-24">
         <span class="text-2xl">
           <b class="text-gray-800 uppercase">{{ bike.manufacturer }}</b> |
           <b :class="`text-${bike.theme} font-light`"> {{ bike.power }}</b>
           <h2 class="text-gray-800 text-5xl font-light">
-=======
-      <nuxt-link v-if="prev" tag="button" :to="`/bikes/${prev.slug}`">
-        <NavButton
-          :bike="prev"
-          :image="prev.image"
-          :theme="`${bike.theme}-600`"
-          direction="left"
-        />
-      </nuxt-link>
-      <div class="p-12 mt-10 z-50 text-left">
-        <span class="text-2xl">
-          <b class="text-gray-800">{{ bike.manufacturer }}</b> |
-          <b :class="`text-${bike.theme}`"> {{ bike.power }}</b>
-          <h2 class="text-5xl font-thin">
->>>>>>> 80512d3cba5f93fd3949ff143c4e0dcdf385077e
             {{ bike.model }}
           </h2>
         </span>
@@ -30,11 +14,7 @@
         <img
           v-if="bike"
           :src="bike.image"
-<<<<<<< HEAD
-          class="w-full z-40 md:ml-24 iamge-bike"
-=======
-          class="w-full z-40 md:ml-12 -mt-12"
->>>>>>> 80512d3cba5f93fd3949ff143c4e0dcdf385077e
+          class="w-full z-40 md:ml-24 bike-image"
           style="z-index:1"
           alt=""
         />
@@ -64,11 +44,7 @@
       />
       <nuxt-content
         :document="bike"
-<<<<<<< HEAD
         class="w-3/4 md:w-2/3 mx-auto text-xl  md:text-gray-400 font-normal mt-8 md:mt-0 text-section"
-=======
-        class="w-3/4 md:w-2/3 mx-auto text-lg xxl:text-xl  md:text-gray-300"
->>>>>>> 80512d3cba5f93fd3949ff143c4e0dcdf385077e
       />
       <div class="w-3/4 md:w-2/3 mx-auto  py-4 items-center flex flex-wrap">
         <span class="details-label">
@@ -181,7 +157,7 @@ export default {
 .text-section{
     animation: fade-in 1s  0s linear;
 }
-.iamge-bike{
+.bike-image{
     animation: yourAnimation 1s  0s linear;
 }
 </style>
