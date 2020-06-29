@@ -65,9 +65,28 @@ export default {
     BikeCard,
     NavButton
   },
-  head({ $content, params }) {
+  head() {
     return {
-      title: `${this.bike.manufacturer} ${this.bike.model}`
+      title: `${this.bike.manufacturer} ${this.bike.model}`,
+      meta: [
+        {
+          hid: "description",
+          name: this.bike.model,
+          content: this.getNuxtContent(this.bike)
+        },
+        {
+          property: "og:title",
+          content: this.bike.model
+        },
+        {
+          property: "og:description",
+          content: this.bike.description
+        },
+        {
+          property: "og:image",
+          content: this.bike.image
+        }
+      ]
     };
   },
   async asyncData({ $content, params }) {
