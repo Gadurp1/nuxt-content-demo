@@ -3,7 +3,7 @@
 
 ![Preview Image](https://i.imgur.com/y3YcI6C.png)
 
-[![Preview Image](https://www.netlify.com/img/deploy/button.svg)](https://www.example.com)
+[![Preview Image](https://www.netlify.com/img/deploy/button.svg)](https://github.com/Gadurp1/nuxt-content-demo)
 [View Demo](https://xenodochial-ramanujan-ea193c.netlify.app/)
 
 
