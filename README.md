@@ -1,6 +1,12 @@
-# motorcycles
+# Netlify Content Demo Project
 
-## Build Setup
+
+![Preview Image](https://i.imgur.com/y3YcI6C.png)
+
+[![Preview Image](https://www.netlify.com/img/deploy/button.svg)](https://www.example.com)
+
+
+## Local Setup
 
 ```bash
 # install dependencies
@@ -16,5 +22,3 @@ $ yarn start
 # generate static project
 $ yarn generate
 ```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
