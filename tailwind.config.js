@@ -7,6 +7,7 @@
 module.exports = {
   theme: {
     fontFamily: {
+      'display': ['Oswald'],
       'body': ['Merriweather Sans'],
     }
   },
@@ -14,8 +15,8 @@ module.exports = {
   plugins: [],
   extend:{ 
     colors: {
-      primary: "#618FE1",
-      secondary: "E36460"
+      blue: "#618FE1",
+      red: "#E36460"
     }
   },
   purge: {

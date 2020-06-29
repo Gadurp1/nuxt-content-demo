@@ -6,8 +6,8 @@
     color: "Ducati Red"
     displacement: "1,103 cc"
     year: "2020"
-    image: "../../panigale.png"
-    theme: "red-600"
+    image: "../../ducati821red.png"
+    theme: "red"
 ---
 
 The 2020 version of the Panigale V4 boosts performance even further and takes track riding to the next level for amateurs and pros alike. 
