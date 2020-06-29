@@ -68,8 +68,29 @@ export default {
     BikeCard,
     NavButton
   },
-  transition(to, from) {
-    return "slide-right";
+  head({ $content, params }) {
+    return {
+      title: `${this.bike.manufacturer} ${this.bike.model}`,
+      meta: [
+        {
+          hid: "description",
+          name: this.bike.model,
+          content: this.getNuxtContent(this.bike)
+        },
+        {
+          property: "og:title",
+          content: this.bike.model
+        },
+        {
+          property: "og:description",
+          content: this.getNuxtContent(this.bike)
+        },
+        {
+          property: "og:image",
+          content: this.bike.image
+        }
+      ]
+    };
   },
   async asyncData({ $content, params }) {
     const [prev, next] = await $content(`bikes`)
@@ -83,6 +104,11 @@ export default {
       prev,
       next
     };
+  },
+  methods: {
+    getNuxtContent(bike) {
+      return bike.body.children[0].children[0].value;
+    }
   }
 };
 </script>
@@ -118,46 +144,46 @@ export default {
   }
 }
 
-@keyframes yourAnimation{
-    0%{
-        transform: rotate(xx) translateX(-120%);
-        transform-origin: 50% 50%;
-        }
-    47%{
-        transform: rotate(xx) translateX(-60%);
-        transform-origin: 50% 50%;
-        }
-    99%{
-        transform: rotate(xx);
-        transform-origin: 50% 50%;
-        }
-    -0%{
-        transform: translateX(-120%);
-        }
+@keyframes yourAnimation {
+  0% {
+    transform: rotate(xx) translateX(-120%);
+    transform-origin: 50% 50%;
+  }
+  47% {
+    transform: rotate(xx) translateX(-60%);
+    transform-origin: 50% 50%;
+  }
+  99% {
+    transform: rotate(xx);
+    transform-origin: 50% 50%;
+  }
+  -0% {
+    transform: translateX(-120%);
+  }
 }
 
-@keyframes fade-in{
-      0%{
-        transform: rotate(xx);
-        opacity: 0;
-        }
-    23%{
-        opacity: .25;
-        }
-    48%{
-        opacity: .5;
-        }
-    75%{
-        opacity: .75;
-        }
-    99%{
-        opacity: 1;
-        }
+@keyframes fade-in {
+  0% {
+    transform: rotate(xx);
+    opacity: 0;
+  }
+  23% {
+    opacity: 0.25;
+  }
+  48% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.75;
+  }
+  99% {
+    opacity: 1;
+  }
 }
-.text-section{
-    animation: fade-in 1s  0s linear;
+.text-section {
+  animation: fade-in 1s 0s linear;
 }
-.bike-image{
-    animation: yourAnimation 1s  0s linear;
+.bike-image {
+  animation: yourAnimation 1s 0s linear;
 }
 </style>
