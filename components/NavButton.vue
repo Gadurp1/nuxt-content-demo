@@ -6,11 +6,11 @@
         :class="positioning.class"
         class="border border-white rounded flex justify-between flex-row bg-white"
       >
-        <b class="text-2xl m-2 font-bold shadow" v-if="direction == 'left'" :class="`text-${theme}`">
+        <b class="text-2xl font-bold px-1" v-if="direction == 'left'" :class="`text-${theme}`">
           {{positioning.icon}}
         </b>
-        <img :src="image" class="h-12" alt="" />
-        <b class="text-2xl m-2 font-bold shadow" v-if="direction == 'right'" :class="`text-${theme}`">
+        <img :src="image" class="h-10" alt="" />
+        <b class="text-2xl font-bold px-1" v-if="direction == 'right'" :class="`text-${theme}`">
           {{positioning.icon}}
         </b>
       </div>
