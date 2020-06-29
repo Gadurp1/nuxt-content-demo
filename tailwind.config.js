@@ -14,8 +14,8 @@ module.exports = {
   plugins: [],
   extend:{ 
     colors: {
-      blue: "#618FE1",
-      red: "E36460"
+      primary: "#618FE1",
+      secondary: "E36460"
     }
   },
   purge: {

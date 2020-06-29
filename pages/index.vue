@@ -1,28 +1,26 @@
 <template>
-  <article class="w-1/2  mx-auto">
-  <SiteNav />
-    <div class="flex flex-wrap justify-between ">
-      <div class="w-full">
-        <BikeCard :bike="bike"/>
-      </div>
+  <div class="flex flex-wrap">
+    <div class="w-1/2">
+      <img :src="home.image" class="h-screen" alt="">
     </div>
-  </article>
+      <div class="flex content-center h-screen w-1/2 flex-wrap bg-gray-200 justify-center h-48">
+        <div class="w-1/3 p-2 border-2 text-gray-600 border-2 border-red-200 text-center" >
+          <nuxt-link to="/bikes/f-650-gs">
+            ENTER GARAGE
+          </nuxt-link>
+        </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import BikeCard from "@/components/BikeCard.vue";
-import SiteNav from "@/components/SiteNav.vue";
 
 export default {
-    components: {
-    BikeCard,
-    SiteNav
-  },
   async asyncData({ $content }) {
-    const bike = await $content('bikes').where({ manufacturer: { $eq: 'Ducati' } }).limit(1).fetch()
-    console.log(bike)
+    const home = await $content("home").fetch();
+
     return {
-      bike
+      home
     };
   }
 };

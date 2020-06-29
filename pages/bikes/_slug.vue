@@ -1,14 +1,15 @@
 <template>
   <div class="w-full flex flex-wrap">
     <div class="bg-white w-full md:w-1/2 md:h-screen static pt-12">
-        <div v-if="prev" class="border border-white p-2 absolute top-0 left-0 mt-10 ml-10 text-white font-bold rounded" :class="`bg-${bike.theme}`">
-          <nuxt-link
-          tag="button"
-          :to="`/bikes/${prev.slug}`"
+      <nuxt-link v-if="prev" tag="button" :to="`/bikes/${prev.slug}`">
+        <div
+          v-if="prev"
+          class="border border-white rounded flex justify-between flex-row absolute top-0 left-0 mt-10 mr-10 bg-white ml-12"
         >
-         < Prev
-        </nuxt-link>
-      </div>
+          <b class="text-2xl m-2 font-bold shadow"><</b>
+          <img :src="prev.image" class="h-12" alt="" />
+        </div>
+      </nuxt-link>
       <div class="p-12 z-50 text-left">
         <span class="text-2xl">
           <b class="text-gray-800">{{ bike.manufacturer }}</b> |
@@ -18,22 +19,29 @@
           </h2>
         </span>
       </div>
-      <img :src="bike.image" class="w-full z-40" style="z-index:1" alt="" />
+      <transition
+        name="slide-fade"
+      >
+        <img :src="bike.image" class="w-full z-40" style="z-index:1" alt="" />
+      </transition>
     </div>
+
     <!-- Nuxt content Section -->
     <div
-      class="w-full md:w-1/2 md:h-screen flex flex-wrap content-center static"
+      class="w-full md:w-1/2 md:h-screen flex flex-wrap content-center static text-section"
       :class="`md:bg-${bike.theme}`"
     >
-      <div v-if="next" class="border border-white p-2 absolute top-0 right-0 mt-10 mr-10 bg-white">
-        <nuxt-link
+      <nuxt-link v-if="next" tag="button" :to="`/bikes/${next.slug}`">
+        <div
           v-if="next"
-          tag="button"
-          :to="`/bikes/${next.slug}`"
+          class="border border-white rounded flex justify-between flex-row absolute top-0 right-0 mt-10 mr-10 bg-white mr-12"
         >
-          Next >
-        </nuxt-link>
-      </div>
+          <img :src="next.image" class="h-12" alt="" />
+          <b class="text-2xl m-2 font-bold shadow" :class="`text-${bike.theme}`"
+            >></b
+          >
+        </div>
+      </nuxt-link>
       <nuxt-content
         :document="bike"
         class="w-3/4 md:w-2/3 mx-auto md:-mt-12 text-md lg:text-2xl xl:text-3xl md:text-gray-400"
@@ -69,7 +77,6 @@ export default {
     console.log(params);
 
     const [prev, next] = await $content(`bikes`)
-      .only("slug")
       .sortBy("slug", "asc")
       .surround(params.slug, { before: 1, after: 1 })
       .fetch();
@@ -86,56 +93,21 @@ export default {
 
 <!-- shirts.vue -->
 <style scoped>
-.page-enter-active {
-  animation: acrossIn 0.4s ease-out both;
-}
-.page-leave-active {
-  animation: acrossOut 0.6s ease-in both;
-}
-@keyframes acrossIn {
-  0% {
-    transform: translate3d(-100%, 0, 0);
+  /* Enter and leave animations can use different */
+  /* durations and timing functions.              */
+  .slide-fade-enter-active {
+    transition: all 0.3s ease;
   }
-  100% {
-    transform: translate3d(0, 0, 0);
+  .slide-fade-leave-active {
+    transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
   }
-}
-@keyframes acrossOut {
-  0% {
-    transform: translate3d(0, 0, 0);
+  .slide-fade-enter, .slide-fade-leave-to
+  /* .slide-fade-leave-active below version 2.1.8 */ {
+    transform: translateX(10px);
+    opacity: 0;
   }
-  100% {
-    transform: translate3d(100%, 0, 0);
+  .text-section{
+    background-image: -webkit-linear-gradient(210deg, #34ADFF 55%, #fff 35%);
+    min-height: 400px;
   }
-}
-.clothrack {
-  font-family: "Indie Flower", cursive;
-  padding: 50px;
-  width: 100vw;
-  height: 100vh;
-}
-.clothes {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  width: 500px;
-}
-html,
-body {
-  font-family: "Indie Flower", cursive;
-  background: #9fdfbf;
-  color: #000000;
-  width: 100vw;
-  height: 100vh;
-}
-h1 {
-  width: 1000px;
-  justify-content: center;
-  display: flex;
-}
-a,
-a:visited {
-  color: #ffffff;
-  text-decoration: none;
-}
 </style>

@@ -29,6 +29,7 @@ export default {
   ** Global CSS
   */
   css: [
+    "~/assets/css/styles.css"
   ],
   /*
   ** Plugins to load before mounting the App
@@ -44,10 +45,13 @@ export default {
   /*
   ** Nuxt.js dev-modules
   */
+  // nuxt.config.js
   buildModules: [
-    // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    '@nuxtjs/tailwindcss',
+    '@nuxtjs/tailwindcss'
   ],
+  tailwindcss: {
+    cssPath: '~/assets/css/styles.css',
+  },
   /*
   ** Nuxt.js modules
   */
@@ -59,5 +63,6 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
+    extractCss: true,
   }
 }

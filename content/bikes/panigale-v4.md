@@ -1,6 +1,7 @@
 ---
     manufacturer: "Ducati"
     model: "Panigale V4"
+    slug: "Panigale-v4"
     power: "157.5 kW (214 hp)"
     color: "Ducati Red"
     displacement: "1,103 cc"
