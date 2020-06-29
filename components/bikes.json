@@ -1,6 +1,7 @@
 {
   "bikes": [
     {
+      "title": "Ducati",
       "manufacturer": "Ducati",
       "model": "Monster 821 Stealth",
       "power": "109 hp (80 kW)",
@@ -8,7 +9,7 @@
       "color": "Stealth Black",
       "displacement": "821 cc",
       "year": "2020",
-      "image": "./monster.jpg"
+      "image": "@/monster.jpg"
     },
     {
       "manufacturer": "BMW",

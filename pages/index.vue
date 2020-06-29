@@ -1,7 +1,8 @@
 <template>
   <article class="w-1/2  mx-auto">
+  <SiteNav />
     <div class="flex flex-wrap justify-between ">
-      <div v-for="bike in page.bikes" class="w-full">
+      <div class="w-full">
         <BikeCard :bike="bike"/>
       </div>
     </div>
@@ -10,16 +11,18 @@
 
 <script>
 import BikeCard from "@/components/BikeCard.vue";
+import SiteNav from "@/components/SiteNav.vue";
 
 export default {
     components: {
-    BikeCard
+    BikeCard,
+    SiteNav
   },
   async asyncData({ $content }) {
-    const page = await $content("bikes").fetch();
-
+    const bike = await $content('bikes').where({ manufacturer: { $eq: 'Ducati' } }).limit(1).fetch()
+    console.log(bike)
     return {
-      page
+      bike
     };
   }
 };
