@@ -4,7 +4,7 @@
       <div
         v-if="bike"
         :class="positioning.class"
-        class="border border-white rounded flex justify-between flex-row absolute top-0  mt-10 bg-white"
+        class="border border-white rounded flex justify-between flex-row bg-white"
       >
         <b class="text-2xl m-2 font-bold shadow" v-if="direction == 'left'" :class="`text-${theme}`">
           {{positioning.icon}}
@@ -31,12 +31,10 @@ export default {
     positioning() {
       if (this.direction == 'right') {
         return {
-          class: 'mr-12 right-0',
           icon: '>'
         }
       }
       return {
-          class: 'ml-12 left-0',
           icon: '<'
         }
     }

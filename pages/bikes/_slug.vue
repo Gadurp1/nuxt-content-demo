@@ -1,37 +1,38 @@
 <template>
   <div class="w-full flex flex-wrap" :class="`gradient-${bike.theme}`">
     <div class="bg-none w-full md:w-1/2 md:h-screen static pt-12">
-      <nuxt-link v-if="prev" tag="button" :to="`/bikes/${prev.slug}`">
-        <NavButton
-          :bike="prev"
-          :image="prev.image"
-          :theme="`${bike.theme}-600`"
-          direction="left"
-        />
-      </nuxt-link>
-      <div class="p-12 z-50 text-left">
+      <div class="p-12 z-50 text-left md:-mb-40 md:mt-48 md:ml-24">
         <span class="text-2xl">
-          <b class="text-gray-800">{{ bike.manufacturer }}</b> |
-          <b :class="`text-${bike.theme}`"> {{ bike.power }}</b>
-          <h2 class="text-6xl font-bold">
+          <b class="text-gray-800 uppercase">{{ bike.manufacturer }}</b> |
+          <b :class="`text-${bike.theme} font-light`"> {{ bike.power }}</b>
+          <h2 class="text-gray-800 text-5xl font-light">
             {{ bike.model }}
           </h2>
         </span>
       </div>
       <transition name="slide-fade">
         <img
-        v-if="bike"
+          v-if="bike"
           :src="bike.image"
-          class="w-full z-40 ml-24"
+          class="w-full z-40 md:ml-24 iamge-bike"
           style="z-index:1"
           alt=""
         />
       </transition>
+      <nuxt-link v-if="prev" tag="button" :to="`/bikes/${prev.slug}`">
+        <NavButton
+          :bike="prev"
+          :image="prev.image"
+          :theme="`${bike.theme}-600`"
+          direction="left"
+          class="absolute top-0 mt-10 ml-12"
+        />
+      </nuxt-link>
     </div>
 
     <!-- Nuxt content Section -->
     <div
-      class="w-full md:w-1/2 md:h-screen flex flex-wrap content-center static"
+      class="w-full md:w-1/2 md:h-screen flex flex-wrap content-center static "
     >
       <NavButton
         v-if="next"
@@ -39,10 +40,11 @@
         :image="next.image"
         :theme="`${bike.theme}-600`"
         direction="right"
+        class="absolute top-0 right-0 mt-10 mr-12"
       />
       <nuxt-content
         :document="bike"
-        class="w-3/4 md:w-2/3 mx-auto md:-mt-12 text-md lg:text-2xl xl:text-3xl md:text-gray-400"
+        class="w-3/4 md:w-2/3 mx-auto text-xl  md:text-gray-400 font-normal mt-8 md:mt-0 text-section"
       />
       <div class="w-3/4 md:w-2/3 mx-auto  py-4 items-center flex flex-wrap">
         <span class="details-label">
@@ -101,16 +103,61 @@ export default {
   transform: translateX(10px);
   opacity: 0;
 }
-.gradient-blue {
-  background-image: -webkit-linear-gradient(210deg, #618fe1 55%, #fff 35%);
-  min-height: 400px;
+@media (min-width: 640px) {
+  .gradient-blue {
+    background-image: -webkit-linear-gradient(140deg, #618fe1 55%, #fff 35%);
+    min-height: 400px;
+  }
+  .gradient-red {
+    background-image: -webkit-linear-gradient(140deg, #e36461 55%, #fff 35%);
+    min-height: 400px;
+  }
+  .gradient-gray {
+    background-image: -webkit-linear-gradient(140deg, #262627 55%, #fff 35%);
+    min-height: 400px;
+  }
 }
-.gradient-red {
-  background-image: -webkit-linear-gradient(210deg, #e36461 55%, #fff 35%);
-  min-height: 400px;
+
+@keyframes yourAnimation{
+    0%{
+        transform: rotate(xx) translateX(-120%);
+        transform-origin: 50% 50%;
+        }
+    47%{
+        transform: rotate(xx) translateX(-60%);
+        transform-origin: 50% 50%;
+        }
+    99%{
+        transform: rotate(xx);
+        transform-origin: 50% 50%;
+        }
+    -0%{
+        transform: translateX(-120%);
+        }
 }
-.gradient-gray {
-  background-image: -webkit-linear-gradient(210deg, #262627 55%, #fff 35%);
-  min-height: 400px;
+
+@keyframes fade-in{
+      0%{
+        transform: rotate(xx);
+        opacity: 0;
+        }
+    23%{
+        opacity: .25;
+        }
+    48%{
+        opacity: .5;
+        }
+    75%{
+        opacity: .75;
+        }
+    99%{
+        opacity: 1;
+        }
+}
+.text-section{
+    animation: fade-in 1s  0s linear;
+}
+.iamge-bike{
+    animation: yourAnimation 1s  0s linear;
 }
 </style>
