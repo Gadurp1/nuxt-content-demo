@@ -17,7 +17,6 @@
           style="z-index:1"
           alt=""
         />
-      <nuxt-link v-if="prev" tag="button" :to="`/bikes/${prev.slug}`">
         <NavButton
           :bike="prev"
           :image="prev.image"
@@ -25,7 +24,6 @@
           direction="left"
           class="absolute top-0 mt-10 ml-12"
         />
-      </nuxt-link>
     </div>
 
     <!-- Nuxt content Section -->
