@@ -1,6 +1,7 @@
 ---
       manufacturer: "indian"
       model: "Scout Bobber"
+      title: "Panigale V4"
       slug: "scout-bobber"
       power: "100 hp"
       color: "Black"

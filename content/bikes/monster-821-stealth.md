@@ -1,6 +1,7 @@
 ---
     id: 2,
     manufacturer: "ducati"
+    title: "Monster 821 Stealth"
     model: "Monster 821 Stealth"
     slug: "monster-821-stealth"
     power: "109 hp (80 kW)"

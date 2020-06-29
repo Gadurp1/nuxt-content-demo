@@ -1,7 +1,7 @@
 <template>
   <div class="w-full flex flex-wrap" :class="`gradient-${bike.theme}`">
-    <div class="bg-none w-full md:w-1/2 md:h-screen static pt-12">
-      <div class="p-12 z-50 text-left md:-mb-40 md:mt-48 md:ml-24">
+    <div class="bg-none w-full md:w-1/2 md:h-screen static pt-12 ">
+      <div class="p-12 z-50 text-left md:-mb-40 md:mt-48 md:ml-24 text-section">
         <span class="text-2xl">
           <b class="text-gray-800 uppercase">{{ bike.manufacturer }}</b> |
           <b :class="`text-${bike.theme} font-light`"> {{ bike.power }}</b>
@@ -10,7 +10,6 @@
           </h2>
         </span>
       </div>
-      <transition name="slide-fade">
         <img
           v-if="bike"
           :src="bike.image"
@@ -18,7 +17,6 @@
           style="z-index:1"
           alt=""
         />
-      </transition>
       <nuxt-link v-if="prev" tag="button" :to="`/bikes/${prev.slug}`">
         <NavButton
           :bike="prev"
@@ -32,7 +30,7 @@
 
     <!-- Nuxt content Section -->
     <div
-      class="w-full md:w-1/2 md:h-screen flex flex-wrap content-center static "
+      class="w-full md:w-1/2 md:h-screen flex flex-wrap content-center static text-section"
     >
       <NavButton
         v-if="next"
@@ -44,7 +42,7 @@
       />
       <nuxt-content
         :document="bike"
-        class="w-3/4 md:w-2/3 mx-auto text-xl  md:text-gray-400 font-normal mt-8 md:mt-0 text-section"
+        class="w-3/4 md:w-2/3 mx-auto text-xl  md:text-gray-400 font-normal mt-8 md:mt-0 "
       />
       <div class="w-3/4 md:w-2/3 mx-auto  py-4 items-center flex flex-wrap">
         <span class="details-label">
@@ -144,7 +142,7 @@ export default {
   }
 }
 
-@keyframes yourAnimation {
+@keyframes slide-in {
   0% {
     transform: rotate(xx) translateX(-120%);
     transform-origin: 50% 50%;
@@ -184,6 +182,7 @@ export default {
   animation: fade-in 1s 0s linear;
 }
 .bike-image {
-  animation: yourAnimation 1s 0s linear;
+  animation: slide-in .3s 0s linear;
 }
+
 </style>
