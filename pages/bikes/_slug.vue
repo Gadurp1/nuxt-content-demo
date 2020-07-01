@@ -1,11 +1,14 @@
 <template>
   <div class="w-full flex flex-wrap" :class="`gradient-${bike.theme}`">
     <div class="bg-none w-full md:w-1/2 md:h-screen static pt-12 ">
-      <div class="p-12 z-50 text-left md:-mb-40 md:mt-48 md:ml-24 text-section">
+      <div
+        class="p-12 z-50 text-left md:-mb-40 md:mt-48 md:ml-24 text-section"
+        data-test="bike-details"
+      >
         <span class="text-2xl">
           <b class="text-gray-800 uppercase">{{ bike.manufacturer }}</b> |
           <b :class="`text-${bike.theme} font-light`"> {{ bike.power }}</b>
-          <h2 class="text-gray-800 text-5xl font-light">
+          <h2 class="text-gray-800 text-6xl font-semibold">
             {{ bike.model }}
           </h2>
         </span>
@@ -15,6 +18,7 @@
         :src="bike.image"
         class="w-full z-40 md:ml-24 bike-image"
         style="z-index:1"
+        data-test="bike-image"
         alt=""
       />
       <NavButton
@@ -30,6 +34,7 @@
     <!-- Nuxt content Section -->
     <div
       class="w-full md:w-1/2 md:h-screen flex flex-wrap content-center static text-section"
+      data-test="bike-desciption"
     >
       <NavButton
         v-if="next"

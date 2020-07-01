@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nuxt-link v-if="bike" tag="button" :to="`/bikes/${bike.slug}`" >
+    <nuxt-link v-if="bike" tag="button" :to="`/bikes/${bike.slug}`" :data-test="`nav-button-${bike.slug}`" >
       <div
         v-if="bike"
         :class="positioning.class"

@@ -5,9 +5,9 @@
 </template>
 
 <style>
-@tailwind base;
+  @tailwind base;
 
-@tailwind components;
+  @tailwind components;
 
-@tailwind utilities;
+  @tailwind utilities;
 </style>

@@ -8,10 +8,12 @@
     "start": "nuxt start",
     "export": "nuxt export",
     "serve": "nuxt serve",
-    "test": "jest"
+    "test": "jest",
+    "test:e2e": "cypress run"
   },
   "dependencies": {
     "@nuxt/content": "^1.3.2",
+    "cypress": "^4.9.0",
     "nuxt": "^2.13.0"
   },
   "devDependencies": {
