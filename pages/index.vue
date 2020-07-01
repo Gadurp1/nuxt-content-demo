@@ -6,11 +6,11 @@
     <div
       class="flex content-center h-screen w-1/2 flex-wrap bg-gray-200 justify-center h-48 overflow-y-auto"
     >
-      <div class="md:w-2/3 flex mx-auto">
+      <div class="md:w-2/3 mx-auto">
+        <BikeCard v-for="bike in bikes" :bike="bike"/>
         <nuxt-link
           to="/bikes/f-650-gs"
-          data-test="enter-button"
-          class="w-full p-2 border-2 text-white bg-red-700 border-2 border-red-800 text-center hover:bg-white hover:border-2 hover:text-red-800 shadow-lg"
+          class="w-1/3 p-2 border-2 text-white bg-red-700 border-2 border-red-800 text-center hover:bg-white hover:border-2 hover:text-red-800 shadow-lg"
         >
           ENTER GARAGE
         </nuxt-link>
